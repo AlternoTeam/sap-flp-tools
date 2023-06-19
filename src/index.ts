@@ -50,28 +50,29 @@ export default class LaunchpadUtils {
       console.log('You must work in fiori launchpad');
     }
   }
+  // min version for use 1.55
   public static async tsCrossAppVersion(sSemObject: string, sAction: string, oParams: object, sAppend?: string) {
+
     if (typeof window !== 'undefined' && window.hasOwnProperty('sap')) {
 
       const continaer = new Container();
+
       const crossAppNav = await continaer.getServiceAsync('CrossApplicationNavigation') as CrossApplicationNavigation;
 
-      const hash = crossAppNav && await crossAppNav.hrefForExternalAsync({
+      const hash = crossAppNav && await crossAppNav.hrefForExternal({
         target: { semanticObject: sSemObject, action: sAppend ? sAction + sAppend : sAction },
         params: oParams,
-      }) || '';
+      }, {}, true) || ''; // boolean to tru for be async func
 
-      const sintent = {
+      const oIntent = {
         target: {
           semanticObject: sSemObject,
           action: sAction
         },
-        params: { A: "B" }
+        params: oParams
       };
-      const sintentString = '#' + sSemObject + '=' + sAction;
 
-
-      const aResponses = await <supportedResult[]>crossAppNav.isNavigationSupported([sintent])
+      const aResponses = await crossAppNav.isNavigationSupported([oIntent]) as supportedResult[];
       if (
         aResponses && aResponses[0] && aResponses[0].supported) {
         crossAppNav.toExternal({
@@ -80,7 +81,7 @@ export default class LaunchpadUtils {
           },
         });
       } else {
-        console.error('Intent ' + sintentString + ' is not supported');
+        console.error('Intent #' + sSemObject + '-' + sAction + ' is not supported');
       }
     }
     else {

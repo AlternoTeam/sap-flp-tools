@@ -1,16 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "declaration": true,
     "outDir": "./lib",
     "strict": true,
-    "typeRoots": [
-      "./node_modules/@types",
+    "types":[
+      "./node_modules/@types/jquery",
+      "./node_modules/@types/three",
+      "./node_modules/@types/offscreencanvas",
+      "./node_modules/@types/json-schema",
+      "./node_modules/@types/qunit",
+      "./node_modules/@types/semver",
+      "./node_modules/@types/sizzle",
       "./node_modules/@sapui5/ts-types-esm"
-        ],
+    ],
 
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/__tests__/*"
+  ]
 }
