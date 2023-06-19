@@ -1,5 +1,5 @@
-import Container from 'sap/ushell/Container';
 import CrossApplicationNavigation from 'sap/ushell/services/CrossApplicationNavigation';
+import Container from 'sap/ushell/Container';
 
 interface SupportedResult {
   supported: boolean;
@@ -53,7 +53,8 @@ export default class LaunchpadUtils {
   // min version for use 1.55
   public static async tsCrossAppVersion(sSemObject: string, sAction: string, oParams: object, sAppend?: string) {
     if (typeof window !== 'undefined' && window.hasOwnProperty('sap')) {
-      const continaer = new Container();
+      // @ts-ignore
+      const continaer = sap.ushell.Container as Container;
 
       const crossAppNav = (await continaer.getServiceAsync('CrossApplicationNavigation')) as CrossApplicationNavigation;
 
