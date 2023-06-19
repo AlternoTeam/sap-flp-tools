@@ -13,6 +13,7 @@
       "./node_modules/@types/qunit",
       "./node_modules/@types/semver",
       "./node_modules/@types/sizzle",
+      "./node_modules/@types/jest",
       "./node_modules/@sapui5/ts-types-esm"
     ],
 
