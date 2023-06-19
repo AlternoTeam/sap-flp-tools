@@ -2,7 +2,7 @@ import { crossAppNavigate } from '../index';
 import LfpUtils from '../index';
 
 
-test('My crossAppNavigate with destract!', () => {
+test('My crossAppNavigate with destract', () => {
     expect(crossAppNavigate("d", "dd", {}, "dd"))
 });
 
