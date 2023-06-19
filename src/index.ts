@@ -4,7 +4,7 @@ export default class LaunchpadUtils {
         if (typeof window !== 'undefined' && window.hasOwnProperty('sap')) {
             // @ts-ignore
             sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then(function(oService){
-                let hash =
+                const hash =
                 (oService &&
                     oService.hrefForExternal({
                         target: {
@@ -13,7 +13,7 @@ export default class LaunchpadUtils {
                         },
                         params: oParams,
                     })) || "";
-                let sintent = "#" + sSemObject + "=" + sAction;
+                const sintent = "#" + sSemObject + "=" + sAction;
 
                 oService.isIntentSupported([sintent]).done(
                     function (olntentSupported: object) {
