@@ -15,7 +15,7 @@ export default class LaunchpadUtils {
                 params: oParams,
               })) ||
             '';
-          const sintent = '#' + sSemObject + '=' + sAction;
+          const sintent = '#' + sSemObject + '-' + sAction;
 
           oService.isIntentSupported([sintent]).done(
             function (olntentSupported: object) {
