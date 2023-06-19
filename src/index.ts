@@ -1,7 +1,7 @@
 import Container from "sap/ushell/Container";
 import CrossApplicationNavigation from "sap/ushell/services/CrossApplicationNavigation";
 
-interface supportedResult {
+interface SupportedResult {
   supported: boolean
 }
 export default class LaunchpadUtils {
@@ -72,7 +72,7 @@ export default class LaunchpadUtils {
         params: oParams
       };
 
-      const aResponses = await crossAppNav.isNavigationSupported([oIntent]) as supportedResult[];
+      const aResponses = await crossAppNav.isNavigationSupported([oIntent]) as SupportedResult[];
       if (
         aResponses && aResponses[0] && aResponses[0].supported) {
         crossAppNav.toExternal({
