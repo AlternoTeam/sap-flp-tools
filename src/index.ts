@@ -3,6 +3,7 @@ export default class LaunchpadUtils {
     if (typeof window !== 'undefined' && window.hasOwnProperty('sap')) {
       // @ts-ignore
       sap.ushell.Container.getServiceAsync('CrossApplicationNavigation').then(
+        // @ts-ignore
         function (oService) {
           const hash =
             (oService &&
