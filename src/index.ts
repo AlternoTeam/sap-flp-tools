@@ -63,7 +63,7 @@ export default class LaunchpadUtils {
         (crossAppNav &&
           (await crossAppNav.hrefForExternal(
             {
-              target: { semanticObject: sSemObject, action: sAppend ? sAction + sAppend : sAction },
+              target: { semanticObject: sSemObject, action: sAppend ? sAction + '&' + sAppend : sAction },
               params: oParams,
             },
             {},
