@@ -7,7 +7,6 @@ interface SupportedResult {
 }
 
 export default class UshellServices {
-
     // @ts-ignore
     public static container: Container = UshellServices.isSapEnv() ? sap.ushell.Container : {};
 
@@ -41,7 +40,7 @@ export default class UshellServices {
                             ) {
                                 oService.toExternal({
                                     target: {
-                                        shellHash: (sAppend ? hash + '&' + sAppend : hash)
+                                        shellHash: sAppend ? hash + '&' + sAppend : hash,
                                     },
                                 });
                             } else {
@@ -57,30 +56,34 @@ export default class UshellServices {
     // min version for use 1.55
     public static async tsCrossAppVersion(sSemObject: string, sAction: string, oParams: object, sAppend?: string) {
         if (UshellServices.isSapEnv()) {
-            const crossAppNav = (await UshellServices.container.getServiceAsync('CrossApplicationNavigation')) as CrossApplicationNavigation;
+            const crossAppNav = (await UshellServices.container.getServiceAsync(
+                'CrossApplicationNavigation',
+            )) as CrossApplicationNavigation;
 
-            const hash = crossAppNav &&
-                crossAppNav.hrefForExternal(
-                    {
-                        target: { semanticObject: sSemObject, action: sAction },
-                        params: oParams,
-                    },
-                    {},
-                    false,// boolean to tru for be async func 
-                ) || '';
+            const hash =
+                (crossAppNav &&
+                    crossAppNav.hrefForExternal(
+                        {
+                            target: { semanticObject: sSemObject, action: sAction },
+                            params: oParams,
+                        },
+                        {},
+                        false, // boolean to tru for be async func
+                    )) ||
+                '';
 
             const oIntent = {
                 target: {
                     semanticObject: sSemObject,
                     action: sAction,
-                }
+                },
             };
 
             const aResponses = (await crossAppNav.isNavigationSupported([oIntent])) as SupportedResult[];
             if (aResponses && aResponses[0] && aResponses[0].supported) {
                 crossAppNav.toExternal({
                     target: {
-                        shellHash: (sAppend ? hash + '&' + sAppend : hash)
+                        shellHash: sAppend ? hash + '&' + sAppend : hash,
                     },
                 });
             } else {
@@ -97,17 +100,16 @@ export default class UshellServices {
                 firstName: userInfo.getFirstName(),
                 lastName: userInfo.getLastName(),
                 email: userInfo.getEmail(),
-                fullName: userInfo.getFullName()
-            }
+                fullName: userInfo.getFullName(),
+            };
         }
     }
     public static isSapEnv() {
         const sapApp = typeof window !== 'undefined' && window.hasOwnProperty('sap');
         const inLaunchpad = sapApp && !!sap.ushell;
         if (!sapApp || !inLaunchpad) {
-            console.log("you are not in sap environment")
+            console.log('you are not in sap environment');
         }
-        return sapApp && inLaunchpad
+        return sapApp && inLaunchpad;
     }
-
 }

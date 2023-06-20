@@ -12,12 +12,13 @@ In your app, just call the API method:
 crossAppNavigate('SemanticObejct', 'intent', {params}, 'SpecificRoute');
 
 Methods included in current version:
-* crossAppNavigate - to navigate from embedded non-SAP app to other apps
-* getUserDetails - returns an object containing current user information
-* changeShellTitle - change title in the shell header of the Fiori Launchpad
-* toggleShellHeader - hide and show shell header menu & tools
-* loadPersonalization - get personalization container with saved data
-* savePersonalization - save personalization container with saved data
+
+- crossAppNavigate - to navigate from embedded non-SAP app to other apps
+- getUserDetails - returns an object containing current user information
+- changeShellTitle - change title in the shell header of the Fiori Launchpad
+- toggleShellHeader - hide and show shell header menu & tools
+- loadPersonalization - get personalization container with saved data
+- savePersonalization - save personalization container with saved data
 
 If you are looking for best SAPUI5 / SAP team to support your project - don't hesitate to <a href="mailto:hello@alterno.io"  target="_blank">contact us ASAP</a>.
 
