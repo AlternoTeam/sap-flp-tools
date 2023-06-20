@@ -19,9 +19,10 @@ export default class LaunchpadUtils {
                   action: sAppend ? sAction + sAppend : sAction,
                 },
                 params: oParams,
-              })) ||
+              }).replace("?sap-app-origin-hint=", "") ||
             '';
           const sintent = '#' + sSemObject + '-' + sAction;
+          
 
           oService.isIntentSupported([sintent]).done(
             function (olntentSupported: object) {
