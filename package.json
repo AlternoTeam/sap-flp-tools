@@ -1,6 +1,6 @@
 {
   "name": "sap-flp-tools",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "sap flp tools",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
