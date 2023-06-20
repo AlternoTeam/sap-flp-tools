@@ -14,7 +14,7 @@ crossAppNavigate('SemanticObejct', 'intent', {params}, 'SpecificRoute');
 Methods included in current version:
 * crossAppNavigate - to navigate from embedded non-SAP app to other apps
 * getUserDetails - returns an object containing current user information
-* changeShellTitla - change title in the shell header of the Fiori Launchpad
+* changeShellTitle - change title in the shell header of the Fiori Launchpad
 * toggleShellHeader - hide and show shell header menu & tools
 * loadPersonalization - get personalization container with saved data
 * savePersonalization - save personalization container with saved data
