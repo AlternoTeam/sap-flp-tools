@@ -36,7 +36,7 @@ export default class LaunchpadUtils {
               ) {
                 oService.toExternal({
                   target: {
-                    shellHash:  (sAppend ? hash + sAppend : hash).replace("?sap-app-origin-hint=", "")
+                    shellHash:  (sAppend ? hash + '&' + sAppend : hash).replace("?sap-app-origin-hint=", "")
                   },
                 });
               } else {
