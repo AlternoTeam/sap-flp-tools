@@ -16,10 +16,10 @@ export default class LaunchpadUtils {
               oService.hrefForExternal({
                 target: {
                   semanticObject: sSemObject,
-                  action: sAppend ? sAction + sAppend : sAction,
+                  action: sAction
                 },
                 params: oParams,
-              }).replace("?sap-app-origin-hint=", "")) ||
+              })) ||
             '';
           
           const sintent = '#' + sSemObject + '-' + sAction;
@@ -36,7 +36,7 @@ export default class LaunchpadUtils {
               ) {
                 oService.toExternal({
                   target: {
-                    shellHash: hash,
+                    shellHash:  (sAppend ? hash + sAppend : hash).replace("?sap-app-origin-hint=", "")
                   },
                 });
               } else {
