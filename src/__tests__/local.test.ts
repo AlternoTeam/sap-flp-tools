@@ -1,12 +1,12 @@
-import { crossAppNavigate, tsCrossAppVersion } from '../index';
-import LfpUtils from '../index';
+import LaunchpadUtils from "../ushellServices";
+import { getUserInfo, tsCrossAppVersion } from "../index";
 
-test('My crossAppNavigate with destract', () => {
-  expect(crossAppNavigate('d', 'dd', {}, 'dd'));
+test('My getUserInfo', () => {
+  expect(getUserInfo());
 });
 
 test('My crossAppNavigate with default export', () => {
-  expect(LfpUtils.crossAppNavigate('d', 'dd', {}, 'dd'));
+  expect(LaunchpadUtils.crossAppNavigate('d', 'dd', {}, 'dd'));
 });
 test('My tsCrossAppVersion ', () => {
   expect(tsCrossAppVersion('d', 'dd', {}, 'dd'));
