@@ -1,7 +1,8 @@
-export default class LaunchpadUtils {
-    static crossAppNavigate(sSemObject: string, sAction: string, oParams: object, sAppend?: string): void;
-    static tsCrossAppVersion(sSemObject: string, sAction: string, oParams: object, sAppend?: string): Promise<void>;
-}
-declare const crossAppNavigate: typeof LaunchpadUtils.crossAppNavigate;
-declare const tsCrossAppVersion: typeof LaunchpadUtils.tsCrossAppVersion;
-export { crossAppNavigate, tsCrossAppVersion };
+import ShellUtils from './shellUtils';
+import UshellServices from './ushellServices';
+declare const getUserDetails: typeof UshellServices.getUserInfo;
+declare const crossAppNavigate: typeof UshellServices.crossAppNavigate;
+declare const tsCrossAppVersion: typeof UshellServices.tsCrossAppVersion;
+declare const toggleShellHeader: typeof ShellUtils.toggleShellHeader;
+declare const changeShellTitle: typeof ShellUtils.changeShellTitle;
+export { crossAppNavigate, tsCrossAppVersion, getUserDetails, toggleShellHeader, changeShellTitle };

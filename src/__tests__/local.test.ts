@@ -1,5 +1,5 @@
 import LaunchpadUtils from '../ushellServices';
-import { getUserDetails, tsCrossAppVersion } from '../index';
+import { changeShellTitle, getUserDetails, tsCrossAppVersion } from '../index';
 
 test('My getUserInfo', () => {
   expect(getUserDetails());
@@ -11,3 +11,8 @@ test('My crossAppNavigate with default export', () => {
 test('My tsCrossAppVersion ', () => {
   expect(tsCrossAppVersion('d', 'dd', {}, 'dd'));
 });
+
+test('My crossAppNavigate with default export', () => {
+  expect(changeShellTitle('my new title'));
+});
+

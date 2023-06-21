@@ -1,7 +1,15 @@
-import LaunchpadUtils from './ushellServices';
+import ShellUtils from './shellUtils';
+import UshellServices from './ushellServices';
 
-const getUserDetails = LaunchpadUtils.getUserInfo;
-const crossAppNavigate = LaunchpadUtils.crossAppNavigate;
-const tsCrossAppVersion = LaunchpadUtils.tsCrossAppVersion;
+// UshellServices
+const getUserDetails = UshellServices.getUserInfo;
+const crossAppNavigate = UshellServices.crossAppNavigate;
+const tsCrossAppVersion = UshellServices.tsCrossAppVersion;
+const loadPersonalization = UshellServices.loadPersonalization;
+const savePersonalization = UshellServices.savePersonalization;
+export { crossAppNavigate, tsCrossAppVersion, getUserDetails, loadPersonalization, savePersonalization };
 
-export { crossAppNavigate, tsCrossAppVersion, getUserDetails };
+// ShellUtils
+const toggleShellHeader = ShellUtils.toggleShellHeader;
+const changeShellTitle = ShellUtils.changeShellTitle;
+export { toggleShellHeader, changeShellTitle };
